@@ -2,6 +2,8 @@
 
 ## Preconditions:
 - TS application listening port: 8000
+- [Node installed](https://nodejs.org/en/download)
+- [Docker installed](https://www.docker.com/products/docker-desktop/)
 
 ```
 |-- dist
