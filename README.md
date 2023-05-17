@@ -24,6 +24,12 @@
 },
 ```
 
+## .env
+### create a .env file at the root of the project
+```
+PORT=8000
+```
+
 ## Dockerfile
 
 ```
@@ -71,12 +77,12 @@ docker build -t hello-world .
 
 Run image in interactive mode
 ```
-docker run -it -p 8000:8000 hello-world
+docker run --env-file ./.env  -it -p 8000:8000 hello-world
 ```
 
 Or run image in silent(daemon) mode
 ```
-docker run -d -p 8000:8000 hello-world
+docker run --env-file ./.env  -it -p 8000:8000 hello-world
 ```
 List all images
 ```
