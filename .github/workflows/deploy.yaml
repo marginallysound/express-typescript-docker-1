@@ -1,0 +1,22 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build -t hello-world -f Dockerfile .
+      - run: docker run -e hello-world npm test
+ 
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+ 
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v18
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          application_name: Nginx-Test
+          environment_name: Nginx-Test-env
+          existing_bucket_name: elasticbeanstalk-us-east-1-351202628491
+          region: us-east-1
+          version_label: ${{ github.sha }}
+          deployment_package: deploy.zip
