@@ -15,7 +15,7 @@ RUN npm run build
 FROM node:slim
 
 ENV NODE_ENV production
-USER node
+USER root
 
 # Create app directory
 WORKDIR /usr/src/app
