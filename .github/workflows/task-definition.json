@@ -7,18 +7,12 @@
             "portMappings": [
                 {
                     "name": "typescript-test-80-tcp",
-                    "containerPort": 80,
+                    "containerPort": 8000,
                     "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
-                },
-                {
-                    "name": "typescript-test-8000-tcp",
-                    "containerPort": 8000,
-                    "hostPort": 8000,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
                 }
+            
             ],
             "essential": true,
             "environment": [],
