@@ -27,5 +27,5 @@ RUN npm ci --omit=dev
 
 COPY --from=builder /usr/src/app/dist ./dist
 
-EXPOSE 80
+EXPOSE 8000
 CMD [ "node", "dist/index.js" ]
